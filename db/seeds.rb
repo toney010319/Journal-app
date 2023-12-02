@@ -8,9 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Category.create(name: "Work", description: "Organize tasks related to work or professional responsibilities.")
-Category.create(name: "Personal Goals", description: "Keep track of personal goals and milestones.")
-Category.create(name: "Shopping List", description: "Manage items to buy during shopping trips.")
-Category.create(name: "Fitness Routine", description: "Plan and monitor your fitness activities and workouts.")
-Category.create(name: "Project Ideas", description: "Store and organize ideas for future projects or activities.")
+User.create(email:"user3@example.com", password: "12345678", password_confirmation: "12345678")
+User.create(email:"user1@example.com", password: "12345678", password_confirmation: "12345678")
+User.create(email:"user2@example.com", password: "12345678", password_confirmation: "12345678")
+Category.create(name: "Work", description: "Organize tasks related to work or professional responsibilities.", user_id: 1)
+Category.create(name: "Personal Goals", description: "Keep track of personal goals and milestones.", user_id: 2)
+Category.create(name: "Shopping List", description: "Manage items to buy during shopping trips.", user_id: 3 )
+Category.create(name: "Fitness Routine", description: "Plan and monitor your fitness activities and workouts.", user_id: 3)
+Category.create(name: "Project Ideas", description: "Store and organize ideas for future projects or activities.", user_id: 3)
  
