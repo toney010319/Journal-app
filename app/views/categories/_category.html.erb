@@ -1,0 +1,18 @@
+<div  class="button-group row justify-content-end" id="<%= dom_id category %> container" style="border:1px solid black; padding: 1em; margin:1em; ">
+ 
+  
+      <p>
+          <strong>Category Name:</strong>
+          <%= category.name %>
+      </p>
+
+      <p>
+        <strong>Category Description:</strong>
+        <%= category.description %>
+      </p>
+        <div class="col-1"><%= link_to "Show", category, class: "btn btn-secondary" %></div>
+          <div class="col-1"> <%= link_to "Edit", edit_category_path(category),class: "btn btn-secondary" %> </div>
+            <div class="col-1" > <%= button_to "Delete", category, method: :delete,class: "btn btn-secondary" %></div>
+    
+
+</div>
