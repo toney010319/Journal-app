@@ -1,6 +1,6 @@
-# README
-
 # A Simple Journal App, to Practice Ruby on Rails
+
+## User Stories
 
 * User story #1 : as a User, i want to create a category that can be used to organize my tasks
 
