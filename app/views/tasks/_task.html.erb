@@ -1,0 +1,35 @@
+<div class="task -<%= task.id %> container" style="border: 1px solid black; padding: 1em, margin: 1em;">
+    <div id="task-body-<%= task.id %>">
+        <div>
+            <%= task.name %> 
+        </div> 
+        <div>
+            <%= task.description %>
+        </div>
+        <div>
+            <%= task.deadline %>
+        </div> 
+        <div>
+            <%= task.status %>
+        </div>
+    </div>
+    <div class="btn-group float-end" style=" border:1px solid black;">
+            <%= link_to 'Edit',nil, remote: true, class: 'btn btn-primary',
+            data:
+            {
+                controller: "tasks",
+                action: "tasks#toggleForm",
+                tasks_form_param: "edit-form-#{task.id}",
+                tasks_body_param: "task-body-#{task.id}",
+                
+            } %>
+
+            <%= button_to 'Delete', [category, task], method: :delete, class: 'btn btn-danger' %> 
+    </div>
+        <div id="edit-form-<%= task.id %>" class="d-none"> 
+            <%= render 'tasks/form', category: @category, task:  task, submit_label: "Update"  %>
+        </div>
+   
+    <hr/>
+ 
+</div>

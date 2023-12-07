@@ -1,0 +1,23 @@
+<%= form_with(model: [category, task ]) do |f| %>
+ <div class="form-control">
+    <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+     </div>
+     <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+     </div>
+     <div>
+    <%= f.label :deadline %>
+   <%= f.date_field :deadline %>
+     </div>
+     <div>
+    <%= f.label :status %>
+    <%= f.select :status,options_for_select(['Ongoing','Completed']) %>
+     </div>
+     
+
+    <%= f.submit submit_label, class: "btn btn-primary mt-1" %>
+ </div>
+<% end %>

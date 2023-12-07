@@ -8,7 +8,9 @@ before_action :authenticate_user!
 
   # GET /categories/1 or /categories/1.json
   def show
+    @tasks = @category.tasks.order(deadline: :asc)
   end
+  
 
   # GET /categories/new
   def new

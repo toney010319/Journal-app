@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  resources :categories
+  resources :categories do
+    resources :tasks
+  end
  
   get 'about', to: 'pages#about'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
