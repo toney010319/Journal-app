@@ -1,49 +1,51 @@
 require "test_helper"
 
 class TasksControllerTest < ActionDispatch::IntegrationTest
- setup do
-   @task = tasks(:one)
- end
+  setup do
+    @user = users(:one)
+    @task = tasks(:one)
+    @category = categories(:one)  
+  end
 
  test "should get index" do
-   get tasks_url
+   get category_tasks_path(@category)
    assert_response :success
  end
 
  test "should get new" do
-   get new_task_url
+   get new_category_task_path(@category)
    assert_response :success
  end
 
  test "should create task" do
    assert_difference("Task.count") do
-     post tasks_url, params: { task: { description: @task.description, name: @task.name } }
+     post category_tasks_url(@category, @task), params: { task: { description: @task.description, name: @task.name, deadline: @task.deadline, status: @task.status, category_id: @task.category_id, user_id: @task.user_id } }
    end
 
    assert_redirected_to task_url(Task.last)
  end
 
  test "should show task" do
-   get task_url(@task)
+   get category_task_url(@category, @task)
    assert_response :success
  end
 
  test "should get edit" do
-   get edit_task_url(@task)
+   get edit_category_task_path(@category, @task)
    assert_response :success
  end
 
  test "should update task" do
-   patch task_url(@task), params: { task: { description: @task.description, name: @task.name } }
-   assert_redirected_to task_url(@task)
+   patch category_task_url(@category, @task), params: { task: { description: @task.description, name: @task.name } }
+   assert_redirected_to category_task_url(@category, @task)
  end
 
  test "should destroy task" do
    assert_difference("Task.count", -1) do
-     delete task_url(@task)
+     delete category_task_url(@category, @task)
    end
 
-   assert_redirected_to tasks_url
+   assert_redirected_to category_task_url(@category, @task)
  end
 
   

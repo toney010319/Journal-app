@@ -16,9 +16,9 @@
 one:
   name: Category One
   description: Description for Category One
-  user: one # This should match the label of a user fixture
+  user: one 
 
 two:
   name: Category Two
   description: Description for Category Two
-  user: two # This should match the label of a user fixture
+  user: two 
