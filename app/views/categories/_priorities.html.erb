@@ -1,0 +1,17 @@
+<div class="p-2 card-body" id="priority" style="border: 1px solid black; border-radius: 10px; bacgkround-color: white;">
+  <h1 class="alert alert-danger">Your Priorities</h1>
+  <hr/>
+  <% today_deadline_count = @tasks.count { |task| task.deadline.to_date == Date.today && task.status == 'Ongoing'  } %>
+  <p>Number of tasks due today: <%= today_deadline_count %></p>
+<div id="scroll">
+  <% @tasks.each do |task| %>
+    <% if task.deadline.to_date == Date.today && task.status == 'Ongoing' %>
+      <div class="alert alert-danger"  >
+        <p class="alert-danger" role="alert">Category: <%= task.category.name %></p>
+        <p class="alert-danger" role="alert">Name: <%= task.name %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+</div>
+  

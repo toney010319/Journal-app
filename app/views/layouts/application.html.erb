@@ -14,15 +14,19 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body style="background-color: #fff0e5;">
-    <header>
-    <%= render 'layouts/navbar' %>
-     <%= render 'layouts/alerts' %>
+  <body style="background-color: #fff0e5;" >
+    <header style="padding-bottom: 50px;"  >
+    <%= render 'layouts/navbar'  %>
+    
     </header>
     <main>
-      <div class="container ">
+       <%= render 'layouts/alerts' %>
+      <div class="container  ">
     <%= yield %>
     </div>
     </main>
+    <footer>
+      <%= render 'layouts/footer' %>
+      </footer>
   </body>
 </html>

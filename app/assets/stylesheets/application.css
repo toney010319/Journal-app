@@ -18,7 +18,19 @@
     font-family: 'IBM Plex Sans', sans-serif;
     color: #10162fe5;
  }
+#priority {
+    box-shadow: -8px 8px 10px  0 #10162fe5;
+    background-color: white;
+    
+}
 
+#scroll {
+    height: 8rem;
+    background-color: white;
+    overflow: scroll;
+    border: 1px solid black;
+    border-radius: 10px;
+}
 .card {
    
     transition: all 0.3s;
@@ -28,4 +40,16 @@
      transform: scale(1.01);
      box-shadow: -8px 8px 0  0 #10162fe5;
      cursor: pointer;
+ }
+
+ #category {
+    letter-spacing: 5px;
+ }
+ #show {
+     margin-top: 50px;
+     display:flex;
+     flex-direction: column;
+     justify-content: center;
+    align-items: center;
+    font-family: 'IBM Plex Sans', sans-serif;
  }

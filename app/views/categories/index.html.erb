@@ -2,17 +2,22 @@
 <div class=" d-flex flex-column align-items-center justify-content-center mt-5">
     <h1 class="fw-bold" >Welcome to your dashboard</h1>
     <h4>Today is  <b class="fw-bold"><%=Date.today.strftime("%B %d, %Y") %> </b></h4>
+  <div>
+    <%= render 'priorities'%>
+  </div>
 </div>
-<div id="categories" class="d-flex justify-content-evenly  align-items-center flex-wrap  gap-5 mt-5">
- 
- 
-
-   
+<br/>
+<br/>
+<br/>
+ <hr/>
+<h2 class="text-center fw-bold " id="category">CATEGORY</h2>
+<hr/>
+<h4 class="text-center"><%= link_to "New category", new_category_path  %>+</h4>
+<div id="categories" class="d-flex justify-content-evenly  align-items-center flex-wrap  gap-5 mt-5 pb-5">
   <% @categories.each do |category| %>
-    
     <%= render category %>
-     
   <% end %>
 </div>
 
-<%= link_to "New category", new_category_path %>
+
+

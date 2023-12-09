@@ -4,6 +4,7 @@ before_action :authenticate_user!
   # GET /categories or /categories.json
   def index
     @categories = current_user.categories
+    @tasks = Task.where(deadline: Date.today)
   end
 
   # GET /categories/1 or /categories/1.json

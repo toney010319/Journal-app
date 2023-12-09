@@ -2,6 +2,9 @@ class TasksController < ApplicationController
     before_action :authenticate_user!
     before_action :set_task 
 
+    def index
+        @tasks = @category.tasks.all
+    end
     def create
         @task = @category.tasks.create(task_params)
         @task.user_id = current_user.id
