@@ -1,10 +1,15 @@
  
+<div class=" d-flex flex-column align-items-center justify-content-center mt-5">
+    <h1 class="fw-bold" >Welcome to your dashboard</h1>
+    <h4>Today is  <b class="fw-bold"><%=Date.today.strftime("%B %d, %Y") %> </b></h4>
+</div>
+<div id="categories" class="d-flex justify-content-evenly  align-items-center flex-wrap  gap-5 mt-5">
+ 
+ 
 
-<h1>Welcome, !</h1>
- <h4>Today is  <b><%=Date.today.strftime("%B %d, %Y") %> </b></h4>
-
-<div id="categories">
+   
   <% @categories.each do |category| %>
+    
     <%= render category %>
      
   <% end %>
