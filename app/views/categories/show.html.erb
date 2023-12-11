@@ -6,13 +6,19 @@
 <div id="show">
   <%# <%= link_to "Edit this category", edit_category_path(@category) %>  
   <%# <%= render @category %> 
-  <h1>Name: <%= @category.name %></h1>
-  <h1>Description: <%= @category.description %></h1>
+  <h2> <%= @category.name %> Category</h2>
+  <h4>  <%= @category.description %></h4>
+  <p>
+  You have  <%= pluralize(@category.tasks.count, 'task') %> in this category
+</p>
   <%= link_to "Back to categories", categories_path %>
 
   <%# <%= button_to "Destroy this category", @category, method: :delete %>  
 </div>
 <hr/>
+<h2 class="text-center fw-bold " id="category">TASK</h2>
+<hr/>
+ 
 <div class="container">
  <%= render 'tasks/form', category: @category, task:  @category.tasks.build, submit_label: "Submit"   %>
   <% @tasks.each do |task| %>

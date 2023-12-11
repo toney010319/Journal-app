@@ -1,19 +1,20 @@
-<div class="task -<%= task.id %> container" style="border: 1px solid black; padding: 1em, margin: 1em;">
+<div class="task -<%= task.id %> container" >
+ <hr/>
     <div id="task-body-<%= task.id %>">
         <div>
-            <%= task.name %> 
+            Name: <%= task.name %> 
         </div> 
         <div>
-            <%= task.description %>
+           Description: <%= task.description %>
         </div>
         <div>
-            <%= task.deadline %>
+            Deadline: <%= task.deadline %>
         </div> 
         <div>
-            <%= task.status %>
+            Status: <%= task.status %>
         </div>
     </div>
-    <div class="btn-group float-end" style=" border:1px solid black;">
+    <div class="  d-flex justify-content-end ">
             <%= link_to 'Edit',nil, remote: true, class: 'btn btn-primary',
             data:
             {

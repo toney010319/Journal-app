@@ -16,6 +16,7 @@ before_action :authenticate_user!
   # GET /categories/new
   def new
     @category = Category.new
+ 
   end
 
   # GET /categories/1/edit
@@ -25,6 +26,7 @@ before_action :authenticate_user!
   # POST /categories or /categories.json
   def create
     @category = Category.new(category_params)
+   
     @category.user = current_user
 
     respond_to do |format|
