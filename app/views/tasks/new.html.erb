@@ -1,0 +1,9 @@
+<h1>New Task</h1>
+
+<%= render 'form', category: @category, task:  @category.tasks.build, submit_label: "Submit"   %>
+
+<br>
+
+<div>
+  <%= link_to "Back to categories", categories_path %>
+</div>

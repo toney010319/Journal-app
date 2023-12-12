@@ -1,36 +1,49 @@
-<div class="task -<%= task.id %> container" >
- <hr/>
-    <div id="task-body-<%= task.id %>">
-        <div>
-            Name: <%= task.name %> 
-        </div> 
-        <div>
-           Description: <%= task.description %>
-        </div>
-        <div>
-            Deadline: <%= task.deadline %>
-        </div> 
-        <div>
-            Status: <%= task.status %>
-        </div>
-    </div>
-    <div class="  d-flex justify-content-end ">
-            <%= link_to 'Edit',nil, remote: true, class: 'btn btn-primary',
-            data:
-            {
-                controller: "tasks",
-                action: "tasks#toggleForm",
-                tasks_form_param: "edit-form-#{task.id}",
-                tasks_body_param: "task-body-#{task.id}",
-                
-            } %>
 
-            <%= button_to 'Delete', [category, task], method: :delete, class: 'btn btn-danger' %> 
-    </div>
-        <div id="edit-form-<%= task.id %>" class="d-none"> 
-            <%= render 'tasks/form', category: @category, task:  task, submit_label: "Update"  %>
-        </div>
-   
     <hr/>
+    <div id="task-body-<%= task.id %>" class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= task.id %>" aria-expanded="false" aria-controls="collapse<%= task.id %>">
+                    Name: <%= task.name %> 
+                </button>
+            </h2>
+        <div id="collapse<%= task.id %>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+
+                 Description: <%= task.description %>
+        
+        
+                Deadline: <%= task.deadline %>
+            
+            
+                Status: <%= task.status %>
+            
+    
+                <div class="  d-flex justify-content-end ">
+                    <%= link_to 'Edit', edit_category_task_path(category, task), class: 'btn btn-primary'%>
+                        <%# <%= link_to 'Edit',nil, remote: true, class: 'btn btn-primary',
+                        # data:
+                        # {
+                        #     controller: "tasks",
+                        #     action: "tasks#toggleForm",
+                        #     tasks_form_param: "edit-form-#{task.id}",
+                        #     tasks_body_param: "task-body-#{task.id}",
+                            
+                        # } %>
+
+                        <%= button_to 'Delete', [category, task], method: :delete, class: 'btn btn-danger' %> 
+                </div>
+                <div id="edit-form-<%= task.id %>" class="d-none"> 
+                    <%= render 'tasks/form', category: @category, task:  task, submit_label: "Update"  %>
+                </div>
+    
+                    <hr/>
+            </div>
+        </div>
+    </div>
  
-</div>
+
+
+
+
+
+ 

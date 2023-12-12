@@ -4,24 +4,35 @@
 
 
 <div id="show">
-  <%# <%= link_to "Edit this category", edit_category_path(@category) %>  
-  <%# <%= render @category %> 
+  
   <h2> <%= @category.name %> Category</h2>
   <h4>  <%= @category.description %></h4>
   <p>
-  You have  <%= pluralize(@category.tasks.count, 'task') %> in this category
+  total number of tasks in this category: <strong><%= (@category.tasks.count) %></strong>
+</p>
+<p>
+  tasks on-going : <strong><%= (@category.tasks.where(status: "Ongoing").count) %></strong>
+</p>
+<p>
+  tasks completed : <strong><%= (@category.tasks.where(status: "Completed").count) %></strong>
+</p>
+<p>
+  tasks pending : <strong><%= (@category.tasks.where(status: "Pending").count) %></strong>
 </p>
   <%= link_to "Back to categories", categories_path %>
 
-  <%# <%= button_to "Destroy this category", @category, method: :delete %>  
+  
 </div>
 <hr/>
 <h2 class="text-center fw-bold " id="category">TASK</h2>
 <hr/>
  
 <div class="container">
- <%= render 'tasks/form', category: @category, task:  @category.tasks.build, submit_label: "Submit"   %>
+  <h4 class="text-center"><%= link_to "New Task", new_category_task_path(@category) %>+</h4>
+ <%# <%= render 'tasks/form', category: @category, task:  @category.tasks.build, submit_label: "Submit"   %> 
+  <div class=" container accordion"   id="accordionExample">
   <% @tasks.each do |task| %>
   <%= render 'tasks/task', category: @category,  task: task %>
   <% end %>
+  </div>
 </div>

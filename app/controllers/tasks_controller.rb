@@ -2,23 +2,30 @@ class TasksController < ApplicationController
     before_action :authenticate_user!
     before_action :set_task 
 
+    def edit
+        @task = Task.find(params[:id])
+        @category = @task.category
+      
+    end
     def index
         @tasks = @category.tasks.all
     end
     def create
         @task = @category.tasks.create(task_params)
         @task.user_id = current_user.id
-        if @task.save
-            flash[:notice] = "Task created successfully"
-        redirect_to category_path(@category)
-        else
-            flash[:alert] = "Task not created"
-        redirect_to category_path(@category)
+        respond_to do |format|
+            if @task.save
+                format.html { redirect_to category_path(@category), notice: "Category was successfully created." }
+                format.json { render :show, status: :created, location: @category }
+            else
+                format.html { render :new, status: :unprocessable_entity }
+                format.json { render json: @category.errors, status: :unprocessable_entity }
+            end
         end
     end
  
  
- 
+
 
     def destroy
          @task = @category.tasks.find(params[:id])
