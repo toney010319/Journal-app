@@ -1,4 +1,4 @@
-# A Simple Journal App, to Practice Ruby on Rails
+# A Simple Journal App, to Practice Ruby on Rails (BOOTCAMP PROJECT)
 
 ## User Stories
 
